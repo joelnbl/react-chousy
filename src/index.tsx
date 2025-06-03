@@ -11,3 +11,5 @@ interface ConditionalRenderProps {
 export const ConditionalRender: React.FC<ConditionalRenderProps> = ({ condition, children }) => {
   return <>{condition ? children.true : children.false}</>;
 };
+
+export { SwitchCaseRender } from "./components/SwitchCaseRender";
