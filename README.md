@@ -68,6 +68,56 @@ import { ConditionalRender } from 'react-chousy';
 
 ---
 
+## 🔀 SwitchCaseRender
+A JSX-friendly alternative to switch statements. Pass a value and render different elements based on matched keys.
+
+### ✨ Usage
+
+```tsx
+import { SwitchCaseRender } from 'react-chousy';
+
+<SwitchCaseRender value={status}>
+  {{
+    idle: <p>Waiting...</p>,
+    loading: <p>Loading...</p>,
+    success: <p>✅ Success!</p>,
+    error: <p>❌ Error</p>,
+    default: <p>Unknown status</p>
+  }}
+</SwitchCaseRender>
+```
+--- 
+### 📘 Real-world example
+```tsx
+import { SwitchCaseRender } from 'react-chousy';
+
+const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+<SwitchCaseRender value={status}>
+  {{
+    idle: <p>Esperando acción...</p>,
+    loading: <p>Cargando...</p>,
+    success: <p>¡Completado con éxito!</p>,
+    error: <p>Ocurrió un error.</p>,
+    default: <p>Estado desconocido</p>,
+  }}
+</SwitchCaseRender>
+```
+---
+
+## 🛠 API
+
+
+
+| Prop       | Type                         | Description                                             |
+|------------|------------------------------|---------------------------------------------------------|
+| `value`    | `string \| number`           | The value to match                                      |
+| `children` | `Record<string, ReactNode>`  | Keys that match the value + optional `default` fallback |
+
+
+
+
+---
 ## 👨‍💻 Author
 
 Made with ❤️ by **Joelnbl**  
@@ -75,6 +125,14 @@ Made with ❤️ by **Joelnbl**
 🐦 [Twitter](https://twitter.com/joelnbl)
 
 ---
+## 🙌 Contributors
+
+Thanks to these awesome people:
+
+- [@joelnbl](https://github.com/joelnbl) – Creator & Maintainer  
+- [@SeveralReves](https://github.com/SeveralReves) – `SwitchCaseRender` component  
+
+
 
 ## 📝 License
 
