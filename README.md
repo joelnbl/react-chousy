@@ -1,4 +1,4 @@
-![react-chousy banner](./react-chousy.png)
+![react-chousy banner](https://github.com/joelnbl/react-chousy/raw/master/react-chousy.png)
 
 # 🎭 react-chousy
 
