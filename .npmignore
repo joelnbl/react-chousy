@@ -1,0 +1,9 @@
+src/
+tests/
+.git/
+.github/
+.vscode/
+node_modules/
+.gitignore
+tsconfig.json
+*.log
