@@ -1,6 +1,6 @@
 {
   "name": "react-chousy",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "A simple React component for conditional rendering using JSX-friendly syntax.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -27,7 +27,7 @@
   "author": "Patron",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0"
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",
