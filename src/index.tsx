@@ -13,3 +13,4 @@ export const ConditionalRender: React.FC<ConditionalRenderProps> = ({ condition,
 };
 
 export { SwitchCaseRender } from "./components/SwitchCaseRender";
+export { ChousyEach } from "./components/chousy-each";

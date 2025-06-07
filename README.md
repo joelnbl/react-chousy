@@ -118,6 +118,105 @@ const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("
 
 
 ---
+## 🌀 ChousyEach (Rails-inspired map/each for React)
+
+A declarative, flexible, and beautiful way to render lists in React, inspired by Ruby/Rails' `each` method. Supports optional selection state and side effects out of the box.
+
+### ✨ Usage
+
+```tsx
+import { ChousyEach } from 'react-chousy';
+
+const fruits = ['🍎', '🍌', '🍇'];
+
+<ChousyEach of={fruits}>
+  {(fruit, idx) => (
+    <span>{fruit}</span>
+  )}
+</ChousyEach>
+```
+
+### 🎯 With selection state (trackSelection)
+
+```tsx
+import { ChousyEach } from 'react-chousy';
+
+const fruits = ['🍎', '🍌', '🍇'];
+
+<ChousyEach of={fruits} trackSelection>
+  {(fruit, idx, { selectedIdx, setSelectedIdx }) => (
+    <button
+      className={selectedIdx === idx ? 'font-bold text-blue-600' : 'text-gray-700'}
+      onClick={() => setSelectedIdx(idx)}
+    >
+      {fruit}
+    </button>
+  )}
+</ChousyEach>
+```
+
+### ⚡ With effect on list change (onChange)
+
+```tsx
+import { ChousyEach } from 'react-chousy';
+
+const fruits = ['🍎', '🍌', '🍇'];
+
+<ChousyEach
+  of={fruits}
+  onChange={list => console.log('List changed:', list)}
+>
+  {(fruit, idx) => <span>{fruit}</span>}
+</ChousyEach>
+```
+
+### 🧭 Navbar highlighting (navHighlight)
+
+```tsx
+import { ChousyEach } from 'react-chousy';
+
+const menu = [
+  { label: 'Home', path: '/' },
+  { label: 'About', path: '/about' },
+  { label: 'Contact', path: '/contact' },
+];
+
+// Assume you get currentPath from your router (e.g., window.location.pathname or a router hook)
+const currentPath = '/about';
+
+<ChousyEach
+  of={menu}
+  navHighlight
+  getPath={item => item.path}
+  currentPath={currentPath}
+>
+  {(item, idx, { isActive }) => (
+    <a
+      href={item.path}
+      className={isActive ? 'text-blue-600 font-bold' : 'text-gray-700'}
+    >
+      {item.label}
+    </a>
+  )}
+</ChousyEach>
+```
+
+---
+
+## 🛠 ChousyEach API
+
+| Prop            | Type                                               | Description                                                                 |
+|-----------------|----------------------------------------------------|-----------------------------------------------------------------------------|
+| `of`            | `T[]`                                              | Array of items to render                                                    |
+| `children`      | `(item: T, idx: number, helpers?) => ReactNode`    | Render function for each item. If `trackSelection` or `navHighlight` is true, helpers are provided |
+| `className`     | `string`                                           | Optional Tailwind classes for the `<ul>`                                    |
+| `onChange`      | `(list: T[]) => void`                              | Optional effect callback when list changes                                  |
+| `trackSelection`| `boolean`                                          | If true, exposes `selectedIdx` and `setSelectedIdx` to children             |
+| `navHighlight`  | `boolean`                                          | If true, highlights the item whose path matches `currentPath`               |
+| `getPath`       | `(item: T, idx: number) => string`                 | Function to extract the path from each item                                 |
+| `currentPath`   | `string`                                           | The current path to match for highlighting                                  |
+
+---
 ## 👨‍💻 Author
 
 Made with ❤️ by **Joelnbl**  

@@ -42,5 +42,8 @@
       "name": "Gabriel Duran",
       "url": "https://github.com/SeveralReves"
     }
-  ]
+  ],
+  "dependencies": {
+    "clsx": "^2.1.1"
+  }
 }
