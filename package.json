@@ -1,7 +1,8 @@
 {
   "name": "react-chousy",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "A simple React component for conditional rendering using JSX-friendly syntax.",
+  "homepage": "https://react-chousy-doc.vercel.app/",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -9,6 +10,10 @@
     "README.md",
     "LICENSE"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joelnbl/react-chousy.git"
+  },
   "scripts": {
     "build": "tsup src/index.tsx --format esm,cjs --dts",
     "dev": "tsup src/index.tsx --watch"
